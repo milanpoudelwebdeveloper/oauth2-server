@@ -7,7 +7,6 @@ const router = express.Router();
 router.post("/register", registerUser);
 router.post("/login", (req, res) => {
   passport.authenticate("local", (err: Error, user: User, info: any) => {
-    console.log("the info is", info);
     if (err) throw err;
     if (!user) return res.status(401).json(info);
     else {
